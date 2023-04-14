@@ -1,9 +1,12 @@
 <script setup>
-
+    import MainLayout from '@/Layouts/MainLayout.vue';
 </script>
 
 <template>
     <Head title="HOME" />
 
-    <div class="bg-green-500">HOME.VUE</div>
+    <MainLayout>
+        <!-- <div class="bg-green-500">HOME.VUE</div> -->
+    </MainLayout>
+
 </template>
