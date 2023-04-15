@@ -3,6 +3,8 @@ import { ref, onMounted, toRefs } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
+import LikesSection from '@/Components/LikesSection.vue';
+
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
 
@@ -71,6 +73,8 @@ onMounted(() => {
                 <div class="bg-black rounded-lg w-full min-h-[400px] flex items-center">
                     <img class="mx-auto w-full" src="https://picsum.photos/id/54/300/320">
                 </div>
+
+                <LikesSection />
             </div>
         </div>
     </MainLayout>
