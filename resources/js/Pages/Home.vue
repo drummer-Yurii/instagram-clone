@@ -24,6 +24,27 @@ onMounted(() => {
         wWidth.value = window.innerWidth
     })
 })
+
+const addComment = (object) => {
+    router.post('/comments', {
+        post_id: object.post.id,
+        user_id: object.user.id,
+        comment: object.comment
+    }, {
+        onFinish: () => updatedPost(object),
+    }
+    )
+}
+
+const updatedPost = (object) => {
+    for (let i = 0; i < posts.value.data.length; i++) {
+        const post = posts.value.data[i];
+        if (post.id === object.post.id) {
+            currentPost.value = post
+        }
+
+    }
+}
 </script>
 
 <template>
@@ -100,6 +121,12 @@ onMounted(() => {
     <ShowPostOverlay
         v-if="openOverlay"
         :post="currentPost"
+        @addComment="addComment($event)"
+        @updateLike="updateLike($event)"
+        @deleteSelected="
+            deleteFunc($event);
+            openOverlay = false
+        "
         @closeOverlay="openOverlay = false"
     />
 </template>
